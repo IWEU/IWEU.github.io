@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Python学习笔记4]]></title>
+    <url>%2F2018%2F01%2F26%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04%2F</url>
+    <content type="text"><![CDATA[我们创建这个备份脚本的过程是编写程序的推荐方法——进行分析与设计。开始时实施一个简单的版本。对它进行测试与调试。使用它以确信它如预期那样地工作。再增加任何你想要的特性，根据需要一次次重复这个编写－测试－使用的周期。记住“软件是长出来的，而不是建造的”。 面向对象编程 Python中的self等价于C++中的self指针和Java、C#中的this参考。 假如你有一个类称为MyClass和这个类的一个实例MyObject。当你调用这个对象的方法MyObject.method(arg1, arg2)的时候，这会由Python自动转为MyClass.method(MyObject, arg1, arg2)——这就是self的原理了。(?) 这也意味着如果你有一个不需要参数的方法，你还是得给这个方法定义一个self参数。(?) Python中所有的类成员（包括数据成员）都是 公共的 ，所有的方法都是 有效的 。只有一个例外：如果你使用的数据成员名称以 双下划线前缀 比如__privatevar，Python的名称管理体系会有效地把它作为私有变量。 这样就有一个惯例，如果某个变量只想在类或对象中使用，就应该以单下划线前缀。而其他的名称都将作为公共的，可以被其他类/对象使用。 如果在继承元组中列了一个以上的类，那么它就被称作 多重继承(??) f = file(‘poem.txt’) 没有指定模式，读模式会作为默认的模式 你还可以让try..catch块关联上一个else从句。当没有异常发生的时候，else从句将被执行。 你可以使用raise语句 引发 异常。你还得指明错误/异常的名称和伴随异常 触发的 异常对象。你可以引发的错误或异常应该分别是一个Error或Exception类的直接或间接导出类。 try..finally假如你在读一个文件的时候，希望在无论异常发生与否的情况下都关闭文件，该怎么做呢？这可以使用finally块来完成。注意，在一个try块下，你可以同时使用except从句和finally块。如果你要同时使用它们的话，需要把一个嵌入另外一个。 对于有经验的程序员，sys模块中其他令人感兴趣的项目有sys.stdin、sys.stdout和sys.stderr它们分别对应你的程序的标准输入、标准输出和标准错误流。 os.sep可以取代操作系统特定的路径分割符 单语句块(??) lambda语句被用来创建新的函数对象，并且在运行时返回它们。 exec语句用来执行储存在字符串或文件中的Python语句 eval语句用来计算存储在字符串中的有效Python表达式 repr函数用来取得对象的规范字符串表示。反引号（也称转换符）可以完成相同的功能。你可以通过定义类的repr方法来控制你的对象在被repr函数调用的时候返回的内容。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Python学习笔记3]]></title>
+    <url>%2F2018%2F01%2F23%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%2F</url>
+    <content type="text"><![CDATA[在函数的第一个逻辑行的字符串是这个函数的 文档字符串 。注意，DocStrings也适用于模块和类 文档字符串的惯例是一个多行字符串，它的首行以大写字母开始，句号结尾。第二行是空行，从第三行开始是详细的描述 Python把 每一样东西 都作为对象 强烈建议 你对你所写的任何正式函数编写文档字符串。随你的Python发行版附带的pydoc命令,与help()类似地使用DocStrings。(?) 为了在其他程序中重用模块，模块的文件名必须以.py为扩展名.我们使用python命令运行using_sys.py模块，后面跟着的内容被作为参数传递给程序。Python为我们把它存储在sys.argv变量中。初始化过程仅在我们 第一次 输入模块的时候进行.“sys”是“system”的缩写. 脚本的名称总是sys.argv列表的第一个参数 1234567import sysprint &apos;The Command line arguments are:&apos;for i in sys.argv: print iprint &apos;\n\nThe PYTHONPATH is&apos;, sys.path,&apos;\n&apos; sys.path包含输入模块的目录名列表。我们可以观察到sys.path的第一个字符串是空的——这个空的字符串表示当前目录也是sys.path的一部分，这与PYTHONPATH环境变量是相同的。这意味着你可以直接输入位于当前目录的模块。否则，你得把你的模块放在sys.path所列的目录之一。(??) 字节编译的.pyc文件(???) from..import语句(???) 每个Python模块都有它的name，如果它是’main‘，这说明这个模块被用户单独运行，我们可以进行相应的恰当操作。 数据结构基本上就是——它们是可以处理一些 数据 的 结构 。或者说，它们是用来存储一组相关数据的。在Python中有三种内建的数据结构——列表、元组和字典。 可以在列表中添加 任何种类的对象 包括数甚至其他列表 在print语句的结尾使用了一个 逗号 来消除每个print语句自动打印的换行符 列表是可变的，字符串是不可变的 有0个或1个项目的元组。一个空的元组由一对空的圆括号组成，如myempty = ()。然而，含有单个元素的元组就不那么简单了。你必须在第一个（唯一一个）项目后跟一个逗号，这样Python才能区分元组和表达式中一个带圆括号的对象。即如果你想要的是一个包含项目2的元组的时候，你应该指明singleton = (2 , ) 序列的两个主要特点是索引操作符和切片操作符。索引操作符让我们可以从序列中抓取一个特定项目。切片操作符让我们能够获取序列的一个切片，即一部分序列。 shoplist[-1]表示序列的最后一个元素而shoplist[-2]抓取序列的倒数第二个项目。 切片操作符中的第一个数（冒号之前）表示切片开始的位置，第二个数（冒号之后）表示切片到哪里结束。如果不指定第一个数，Python就从序列首开始。如果没有指定第二个数，则Python会停止在序列尾.注意，返回的序列从开始位置 开始 ，刚好在 结束 位置之前结束。即开始位置是包含在序列切片中的，而结束位置被排斥在切片外。 序列的神奇之处在于你可以用相同的方法访问元组、列表和字符串。 大多数解释已经在程序的注释中了。你需要记住的只是如果你想要复制一个列表或者类似的序列或者其他复杂的对象（不是如整数那样的简单 对象 ），那么你必须使用切片操作符来取得拷贝。 记住列表的赋值语句不创建拷贝。你得使用切片操作符来建立序列的拷贝。 str类也有以一个作为分隔符的字符串join序列的项目的整洁的方法，它返回一个生成的大字符串。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Python学习笔记2]]></title>
+    <url>%2F2018%2F01%2F22%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02%2F</url>
+    <content type="text"><![CDATA[标识符大小写敏感 Python即是面向对象，也是面向过程的语言 使用变量时只需要给它们赋一个值。不需要声明或定义数据类型。 物理行是你在编写程序时所 看见 的。逻辑行是Python 看见 的单个语句。Python假定每个 物理行 对应一个 逻辑行 。默认地，Python希望每行都只使用一个语句，这样使得代码更加易读。 暗示的行连接(?) 你不能随意地开始新的语句块 （当然除了你一直在使用的主块） 要混合使用制表符和空格来缩进，因为这在跨越不同的平台的时候，无法正常工作。我 强烈建议 你在每个缩进层次使用 单个制表符 或 两个或四个空格 。选择这三种缩进风格之一。更加重要的是，选择一种风格，然后一贯地使用它，即 只 使用这一种风格。(关键是怎样使用单个制表符呢？所以第4章 基本概念 缩进 没有很看懂) 默认地，运算符优先级表决定了哪个运算符在别的运算符之前计算。然而，如果你想要改变它们的计算顺序，你得使用圆括号。 运算符通常由左向右结合，即具有相同优先级的运算符按照从左向右的顺序计算。例如，2 + 3 + 4被计算成(2 + 3) + 4。一些如赋值运算符那样的运算符是由右向左结合的，即a = b = c被处理为a = (b = c)。 print ‘Area is’,2 注意Python如何打印“漂亮的”输出。尽管我们没有在’Area is’和变量area之间指定空格，Python自动在那里放了一个空格，这样我们就可以得到一个清晰漂亮的输出，而程序也变得更加易读（因为我们不需要担心输出之间的空格问题）。这是Python如何使程序员的生活变得更加轻松的一个例子。(what? 好棒！！) 字符串 使用单引号（’） 使用双引号（”） 使用三引号（’’’或”””） 转义符 自然字符串 Unicode字符串 字符串是不可变的 按字面意义级连字符串 变量打印，print iprint i;print s;print \iprint ‘Area is’,area 在Python中有三种控制流语句——if、for和while。 看到控制流语句，差不多知道了缩放的含义，每个缩进层一个制表符 记住，你可以在while循环中使用一个else从句。 for..in是另外一个循环语句，它在一序列的对象上 递归 即逐一使用队列中的每个项目(I don’t understand) break语句是用来 终止 循环语句的，即哪怕循环条件没有称为False或序列还没有被完全递归，也停止执行循环语句。一个重要的注释是，如果你从for或while循环中 终止 ，任何对应的循环else块将不执行。 使用global语句可以清楚地表明变量是在外面的块定义的,你可以使用同一个global语句指定多个全局变量。例如global x, y, z。 默认参数值应该是一个参数。更加准确的说，默认参数值应该是不可变的.只有在形参表末尾的那些参数可以有默认参数值 关键参数：如果你的某个函数有许多参数，而你只想指定其中的一部分，那么你可以通过命名来为这些参数赋值——这被称作 关键参数 ——我们使用名字（关键字）而不是位置（我们前面所一直使用的方法）来给函数指定实参。 None是Python中表示没有任何东西的特殊类型 pass语句在Python中表示一个空的语句块。 除非你提供你自己的return语句，每个函数都在结尾暗含有return None语句]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Python学习笔记 1]]></title>
+    <url>%2F2018%2F01%2F19%2FPython%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[最近闲来无事，准备学习一下Python。 第一章 介绍Python的特色官方介绍：Python是一种简单易学，功能强大的编程语言，它有高效率的高层数据结构，简单而有效地实现面向对象编程。Python简洁的语法和对动态输入的支持，再加上解释性语言的本质，使得它在大多数平台上的许多领域都是一个理想的脚本语言，特别适用于快速的应用程序开发。 简单 易学 免费、开源 高层语言 可移植性 解释性 (更易于移植) 面向对象Python即支持面向过程的编程也支持面向对象的编程 可扩展性 可嵌入性 丰富的库Python标准库确实很庞大。它可以帮助你处理各种工作，包括正则表达式、文档生成、单元测试、线程、数据库、网页浏览器、CGI、FTP、电子邮件、XML、XML-RPC、HTML、WAV文件、密码系统、GUI（图形用户界面）、Tk和其他与系统有关的操作。记住，只要安装了Python，所有这些功能都是可用的。这被称作Python的“功能齐全”理念。除了标准库以外，还有许多其他高质量的库，如wxPython、Twisted和Python图像库等等。Python确实是一种十分精彩又强大的语言。它合理地结合了高性能与使得编写程序简单有趣的特色。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Android Tips]]></title>
+    <url>%2F2018%2F01%2F19%2FAndroid-Tips%2F</url>
+    <content type="text"><![CDATA[Unity 与 Android (Android Studio)的交互问题研究 (一) Unity调用 接口实践与总结(包含Eclipse 和 AndroidStudio) [转] 你需要知道的Android拍照适配方案前几天做安卓的拍照，真是够折腾的，因为安卓设备的不同会遇到各种不同的问题，这篇安卓拍照适配方案倒是解决了一大部分问题。http://www.jianshu.com/p/f269bcda335fhttp://www.jianshu.com/p/66c35c81f4b9http://blog.csdn.net/findsafety/article/details/11529177http://bbs.csdn.net/topics/390768699http://www.piaoyi.org/mobile-app/Android-MIUI-BUG-photo-activity.html android 打开相机 相册问题https://stackoverflow.com/questions/3528735/failed-binder-transaction-when-putting-an-bitmap-dynamically-in-a-widgethttp://www.2cto.com/kf/201210/164401.htmlhttp://dengyin2000.iteye.com/blog/1235515 android studio 修改包名我们只需要在setting里面，把 compact empty middle packages 这个选项去掉，这样，我们的包的层次结构就分开了，这个时候我们就可以根据自己的需要去做相应的修改了。 另外说明一点，在 Studio 里面我们的 getPackageName 对应的是 applicationId , 而manifest 的那个package，在这里的作用其实是为了引用内部资源文件，以及保证 Activity 等源文件的路径正确而已，所以，在 Studio 中修改发布程序包名，则只需要在 build 文件中修改 applicationId 就可以了。]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android logcat 相关方法]]></title>
+    <url>%2F2018%2F01%2F19%2FAndroid%2F</url>
+    <content type="text"><![CDATA[Log 信息级别： Log.v - VERBOSE : 黑色Log.d - DEBUG : 蓝色Log.i- INFO : 绿色Log.w- WARN : 橙色Log.e- ERROR : 红色从上而下级别逐次增加 过滤：指定标签，指定级别adb logcat abc:I // Log.i(“abc”,”dafhdjo”); 输出 abc的I 和I 级别以上的logadb logcat abc:I *:S 只输出abc的I，过滤其他Log 清空 adb logcat -c 显示所有优先级大于等于”warning”的日志adb logcat *:W 将日志保存到文件test.logadb logcat &gt; c:\test.log 显示全部日志 adb logcat 仅输出标记为“ActivityManager”且优先级大于等于“Info”和标记为“PowerManagerService”并且优先级大于等于“Debug”的日志：adb logcat ActivityManager:I PowerManagerService:D *:S 显示Unity的日志信息 adb logcat -s Unity]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity Tips 2]]></title>
+    <url>%2F2018%2F01%2F19%2FUnity-Tips-2%2F</url>
+    <content type="text"><![CDATA[感觉这个中文教程，还是挺好的。有什么忘记的点，可以过来参考Unity 简明教程 物体运动相关走进Transform–物体的运动简单的物体运动和外力作用 浅谈C#中常见的委托 C#编码规范 网络通信UTP与TCP最基本区别 COCOSCocos2d-x 用户手册C++]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AR,VR,Google Cardboard]]></title>
+    <url>%2F2018%2F01%2F19%2FAR-VR-Google-Cardboard%2F</url>
+    <content type="text"><![CDATA[简易盒子Googe CardBoard ARCORE AR 物体注意点转自：http://forum.china.unity3d.com/thread-24427-1-1.html ImageTarget Vuforia支持多种方式来创建AR体验，但几乎所有方式都基于指定识别目标供Vuforia算法识别后开始处理增强现实的渲染。您可以自己设置目标后上传到Vuforia的目标管理器，以供系统进行识别。目标设计需要遵循一些特定规则，否则可能无法被准确识别。 尤为重要的是ImageTarget类型的目标，因为Vuforia中很多目标类型都是由多个ImageTarget按照特定位置与顺序组合而成的MultiTarget。设置ImageTarget有三条主要规则： 细节必须丰富；图片明暗区域对比度必须足够强；不包含任意重复模式。Vuforia会通过SDK的功能为图片创建一个顺序，然后利用算法来匹配图片的模式并追踪目标。大致来说，图像特征就是一个锐角，类似正方形或五角星的角。而特征的数量将直接影响图像目标的“可识别度”。 Unity+高通Vuforia SDK——AR 高通Vuforia+Unity——实现简单的AR功能 Vuforia官网 【苹果ARKit教程】零基础，17分钟制作AR丧尸游戏]]></content>
+      <tags>
+        <tag>AR</tag>
+        <tag>VR</tag>
+        <tag>Cardboard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity Tips 1]]></title>
+    <url>%2F2018%2F01%2F12%2FUnity-WWW-%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84%2F</url>
+    <content type="text"><![CDATA[Unity 官方优化 A1A2 自动设置 图片 为Sprite 12345678910111213141516171819202122public class AutoSetUISprite : AssetPostprocessor&#123; void OnPreprocessTexture() &#123; //自动设置类型; string dirName = System.IO.Path.GetDirectoryName(assetPath); if(dirName.Contains(&quot;UI&quot;)) &#123; TextureImporter textureImporter = (TextureImporter)assetImporter; textureImporter.textureType = TextureImporterType.Sprite; textureImporter.spriteImportMode = SpriteImportMode.Single; textureImporter.alphaIsTransparency = true; textureImporter.mipmapEnabled = false; textureImporter.wrapMode = TextureWrapMode.Clamp; textureImporter.maxTextureSize = 1024; //自动设置打包tag; string folderStr = System.IO.Path.GetFileName(dirName); Debug.Log(&quot;Set Packing Tag --- &quot; + folderStr); textureImporter.spritePackingTag = folderStr; &#125; &#125;&#125; 保持常亮：Screen.sleepTimeout = SleepTimeout.NeverSleep; 设置材质：Sphere.gameObject.GetComponent().materials[0].SetTexture(“_MainTex”, textures[Index]); AddListener传递参数 1234567string name = radialMenu.buttons[i].ButtonIcon.name;radialMenu.buttons[i].OnClick.AddListener(delegate() &#123; onClick(name); &#125;); 选择中心(Center) : 使用当前所选所有物体的共同轴心，选择轴心(Pivot) : 将使用各个物体的实际轴心Unity中的Transform Gizmo中的Pivot和Center 关于Unity的ViewSpace(CameraSpace)的坐标系 Unity3D的四种坐标系 Unity 中的坐标系 [ExecuteInEditMode] 在Unity 编辑器模式显示OnGUI中的按钮什么的组件 一次搞定unity编辑器常用功能 Unity的资源下载与缓存系统的实现 关于Unity中的资源管理，你可能遇到这些问题 Unity5 新AssetBundle打包方式 BuildPipeline.BuildAssetBundles AssetBundle系列——场景资源之打包（一） C# 中文件路径的操作 Unity5的AssetBundle系统在mmo中的使用经验 Unity Resource Manager Unity自动打包工具 BuildPipeline.BuildPlayer 编译播放器 unity项目持续集成dailybuild以及多平台打包管理 【unity系统模块开发】Unity5.5.2UI打包AssetBundle 你应该知道的AssetBundle管理机制 Unity游戏开发使用Assetbundle加载场景的原理 三个先进的NavMesh技术来改善Unity Navigation C# 正则表达式 使用介绍 Stream 和 byte[] 之间的转换 Unity WWW 加载资源路径 123456789101112//不同平台下StreamingAssets的路径是不同的，这里需要注意一下。 public static readonly string PathURL = #if UNITY_ANDROID &quot;file://&quot; + Application.dataPath + &quot;/../AssetBundles/&quot;;#elif UNITY_IPHONE //Application.dataPath + &quot;/Raw/&quot;; &quot;http://192.168.28.129/svn/project/kukuClient/AssetBundles/&quot;;#elif UNITY_STANDALONE_WIN || UNITY_EDITOR &quot;file://&quot; + Application.dataPath + &quot;/../AssetBundles/&quot;;#else string.Empty;#endif Unity官方文档Streaming Assets]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UGUI Tips]]></title>
+    <url>%2F2018%2F01%2F11%2FUGUI-Tips%2F</url>
+    <content type="text"><![CDATA[RectTransform 讲解 Unity官方教學- UI Canvas(UGUI) Canvas 与 Camera 层次关系探究 preferredHeight 获取不准确的问题 获取字体的高度Text.preferredHeight，经测试：在设置大量字体之后，立刻获取此属性，获取的值并不是正确的，但在协程中等待当前帧结束获取的值，会比较接近。 测试文本：（用户协议），大概12KB，有12万个字符。1234567IEnumerator SetTextHeight() &#123; yield return new WaitForEndOfFrame(); var height = ContentText.preferredHeight + 300; //锚点使用stretch top ,-100是左右缩进50 ContentText.rectTransform.sizeDelta = new Vector2(-100, height); &#125; 得到ToggleGroup中现在状态isOn=TRUE的Toggle 1234public Toggle GetActiveToggle(ToggleGroup toggleGroup)&#123; return toggleGroup.ActiveToggles().FirstOrDefault();&#125; UGUI Text 暂时的解决方案也就是用全角空格了 \u3000 UGUI 相关知识点，参考链接总结：实现ScrollRect拖动到最底添加下一页内容UGUI制作动态滑动列表scrollviewuGUI之AutoLayout详解——minHeight,preferredHeight,flexibleHeightLayout Group and ContentSizeFitter in childMaking UI elements fit the size of their contentUGUI研究院之提前获取Text的宽度（十九）ugui如何让长宽随宽度比例放大Unity琐碎(3) UGUI 图文混排解决方案和优化Unity UGUI实现图文混排]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 视频播放]]></title>
+    <url>%2F2018%2F01%2F10%2FUnity-%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%2F</url>
+    <content type="text"><![CDATA[Handheld.PlayFullScreenMovie播放视频 5.6新系统——Video Player(转载)不久前Unity正式发布了5.6版本，作为5.x版本的最后一版还是有不少给力的更新的。其中新加入了一个Video Player控件，用以取代之前的MovieTexture。虽然还是alpha版本的功能，但是在视频导入编辑和播放等功能上比之前的MovieTexture已经好上很多。当然Unity还是保留了MovieTexture以防出现一个不可用的情况。 Video Player介绍（墙外的世界）VideoPlayer API首先导入视频，因为默认不进行编码转换，现在的视频导入速度比以前快很多。 在视频的Import Settings面板上，我们可以选择导入的版本是新的VideoClip或者是旧版的MovieTexture。同时可以设置编码转换，转换的速度视视频的大小而定。 Unity5.6提供了多种生成Video Player控件的方式： 新建一个空白的Video Player：选择菜单栏的GameObject-&gt;Video-&gt;Video Player或者在Hierarchy面板上选择Create-&gt;Video-&gt;Video Player或者右击Hierarchy面板空白处选择Video-&gt;Video Player。 直接将导入的VideoClip拖入场景或者Hierarchy面板，生成的VideoPlayer控件的VideoClip将会自动被赋值，如果场景中存在MainCamera，Camera也会被自动赋值为MainCamera。 将导入的VideoClip拖动到场景中的Camera物体上，生成的VideoPlayer控件的VideoClip和MainCamera将会自动被赋值，模式默认选择Camera Far Plane。 将导入的VideoClip拖动到场景中的2D或者3D物体上，生成的VideoPlayer控件的VideoClip和Renderer将会自动被赋值，模式默认选择Material Override。 将导入的VideoClip拖动到场景中的UI物体上，生成的VideoPlayer控件的VideoClip将会自动被赋值，模式默认选择Render Texture。 VideoPlayer的Inspector面板提供了基本的播放设置。我们可以选择播放源是指定的视频资源或者url路径，路径可以是本地路径或者http路径。 下面是一些比较大众化的设置： Play On Awake：脚本载入时自动播放。 Wait For First Frame：决定是否在第一帧加载完成后才播放，只有在Play On Awake被勾选是才有效。可以防止视频最前几帧被跳过。（使用过程中发现勾选后视频无法自动播放，原因不明） Loop：循环。 Playback Speed：播放速度。Video Player还提供了多种视频渲染的方式，包括Camera Far Plane，Camera Near Plane，Render Texture，Material Override，Api Only。 Camera Far Plane：基于摄像机的渲染，渲染在摄像机的远平面上，需要设置用于渲染的摄像机，同时可以修改alpha通道的值做透明效果，可用于背景播放器。 Camera Near Plane：基于摄像机的渲染，渲染在摄像机的近平面上，需要设置用于渲染的摄像机，同时可以修改alpha通道的值做透明效果，可用作前景播放器。 Render Texture：将视频画面保存在Render Texture上，以供物体或者RawImage使用，可以用来做基于UGUI的播放器。 Material Override：将视频画面复制给所选Render的Material。需要选择具有Render组件的物体，可以选择赋值的材质属性。可制作360全景视频和VR视频。 Api Only： 待研究。 其中Camera Far Plane，Camera Near Planehe和Render Texture可以通过设置Aspect Ratio来选择自适应分辨率的方式: 最后一个Audio Output Mode用于音频的播放，None表示不播放音频，Audio Source表示使用Audio Source进行播放，Direct字面理解应该是直接通过视频来播放，但是我选择这个选项的时候并没有声音。我们需要新建一个AudioSource物体用于音频播放，Audio Source的Clip不需赋值，其余参数可调。 脚本控制（需引用UnityEngine.Video）：VideoPlayer的脚本控制与AudioSource相似，有常规的Play，Pause，Stop方法，也有用于进度控制的time，isPlaying，isLooping，frame，frameCount等属性。VideoPlayer可以使用一系列事件来监听播放的各个动作： errorReceived： 错误监听到时被执行。frameDropped ：有丢帧发生时被执行。frameReady ：新的一帧准备好时被执行。loopPointReached ：播放结束或播放到循环的点时被执行。prepareCompleted ：视频准备完成时被执行。seekCompleted ：查询帧操作完成时被执行。started：在Play方法调用之后立刻调用。下面是关于播放器的创建使用，loopPointReached和PrepareCompleted的用法介绍：123456789101112131415161718using UnityEngine;using UnityEngine.Video;public class MyVideo : MonoBehaviour&#123; public VideoPlayer vPlayer; void Start () &#123; vPlayer.loopPointReached += EndReached; vPlayer.Play(); &#125; void EndReached(VideoPlayer vPlayer) &#123; Debug.Log(&quot;End reached!&quot;); &#125; void Update () &#123; Debug.Log(&quot;Frame &quot; + vPlayer.frame); &#125;&#125; 1234567891011121314151617181920using UnityEngine;using UnityEngine.Video;public class HTTPVideoScript : MonoBehaviour&#123; void Start () &#123; var vPlayer = gameObject.AddComponent&lt;VideoPlayer&gt;(); vPlayer.URL = &quot;http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4&quot;; vPlayer.target = UnityEngine.Video.VideoTarget.CameraFrontPlane; vPlayer.alpha = 0.5f; vPlayer.prepareCompleted += Prepared; vPlayer.Prepare(); &#125; void Prepared(VideoPlayer vPlayer) &#123; Debug.Log(&quot;End reached!&quot;); vPlayer.Play(); &#125;&#125; By: 蒋志杰 插件现有比较常用的有AVPro，EasyMovieTexture，MobileMovieTexture Unity3D之常见的路径（转载） Unity3D中的资源路径:Application.dataPath:此属性用于返回程序的数据文件所在文件夹的路径。例如在Editor中就是Assets了。Application.streamingAssetsPath:此属性用于返回流数据的缓存目录，返回路径为相对路径，适合设置一些外部数据文件的路径。Application.persistentDataPath:此属性用于返回一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。 android平台Application.dataPath: /data/app/xxx.xxx.xxx.apk Application.streamingAssetsPath: jar:file:///data/app/xxx.xxx.xxx.apk/!/assets Application.persistentDataPath: /data/data/xxx.xxx.xxx/files Application.temporaryCachePath: /data/data/xxx.xxx.xxx/cache IOS平台Application.dataPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data Application.streamingAssetsPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw Application.persistentDataPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents Application.temporaryCachePath Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches 从上面的3张表格，我们可以看到 dataPath和streamingAssetsPath的路径位置一般是相对程序的安装目录位置，而 persistentDataPath和temporaryCachePath的路径位置一般是相对所在系统的固定位置 相关参考链接（Unity 视频播放方法，加载assetbundle和常用路径）：unity调用ios原生视频播放Unity视频播放总结StreamingAssets + WWW url not foundiOS Handheld.PlayFullScreenMovie Not workingAVPro Movie Capture Unity Asset Store加载prefab]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 动画系统]]></title>
+    <url>%2F2017%2F12%2F26%2FUnity-%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[在Unity 中 要加入旧动画系统，首先现在物体上加入Animation，然后在通过Animation面板添加动画。反向播放动画： 12345678910111213141516AnimationState clipState = _gameObject.animation[&quot;animationName&quot;];if(clipState != null)&#123; if(obverse) &#123; _gameObject.animation.Play (clipState.name); clipState.speed = 1f; clipState.time = 0f; &#125; else // reverse &#123; _gameObject.animation.Play (clipState.name); clipState.speed = -1f; clipState.time = clipState.length; &#125;&#125; 参考链接：http://www.ceeger.com/forum/read.php?tid=3647]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VR fps 显示]]></title>
+    <url>%2F2017%2F12%2F15%2FVR-fps-%E6%98%BE%E7%A4%BA%2F</url>
+    <content type="text"><![CDATA[VR FPS 帧率显示 找到你的VR Camera（或Center Eye Camera），创建 UI-&gt;Canvas设置Render Mode为 World Space；设置位置为(0，0，0.5)（push it out in front of the camera）设置Scale为(0.001，0.001，0.001) 点击Canvas，创建UI-&gt;Text Text加入下面的代码点击”F”键可以显示隐藏Note: It uses the new fancy Unity 5 Time.unscaledDeltaTime property !转载来自：http://talesfromtherift.com/vr-fps-counter/1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162using UnityEngine;using UnityEngine.UI;// Display FPS on a Unity UGUI Text Panel// To use: Drag onto a game object with Text component// Press &apos;F&apos; key to toggle show/hidepublic class TextFPSCounter : MonoBehaviour&#123; public Text text; public bool show = false; private const int targetFPS =#if UNITY_ANDROID // GEARVR 60;#else 75;#endif private const float updateInterval = 0.5f; private int framesCount; private float framesTime; void Start() &#123; // no text object set? see if our gameobject has one to use if (text == null) &#123; text = GetComponent&lt;Text&gt;(); &#125; &#125; void Update() &#123; if (Input.GetKeyDown(KeyCode.F)) &#123; show = !show; &#125; // monitoring frame counter and the total time framesCount++; framesTime += Time.unscaledDeltaTime; // measuring interval ended, so calculate FPS and display on Text if (framesTime &gt; updateInterval) &#123; if (text != null) &#123; if (show) &#123; float fps = framesCount / framesTime; text.text = System.String.Format(&quot;&#123;0:F2&#125; FPS&quot;, fps); text.color = (fps &gt; (targetFPS - 5) ? Color.green : (fps &gt; (targetFPS - 30) ? Color.yellow : Color.red)); &#125; else &#123; text.text = &quot;&quot;; &#125; &#125; // reset for the next interval to measure framesCount = 0; framesTime = 0; &#125; &#125;&#125;]]></content>
+      <tags>
+        <tag>VR</tag>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OBI ROPE 插件的一些属性]]></title>
+    <url>%2F2017%2F11%2F09%2FOBI-ROPE-%E6%8F%92%E4%BB%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[前一段时间学习的obi插件，感觉挺强悍的，就是有些弄不懂参数都是什么，调了参数，根本不知所云。但也是学习了一下，上面的图片大概就是一些参数的作用，仅供参考。]]></content>
+      <tags>
+        <tag>Unity</tag>
+        <tag>obi rope</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity相机的旋转缩放]]></title>
+    <url>%2F2017%2F10%2F30%2FUnity%E7%9B%B8%E6%9C%BA%E7%9A%84%E6%97%8B%E8%BD%AC%E7%BC%A9%E6%94%BE%2F</url>
+    <content type="text"><![CDATA[摄像机的旋转，这里用的Rotate。摄像机的缩放有两种方法，一种是filedOfView的改变，一种是改变摄像机Z轴的位置。都是可以的，下面是代码： 1234567891011121314151617181920212223242526272829303132333435363738public float zoomSpeed = 10; //缩放速度public float rotateSpeed = 1; //旋转速度private float delta_z;private float delta_rotation_x, delta_rotation_y;void Update()&#123; //摄像机旋转 if (Input.GetMouseButton(0)) &#123; delta_rotation_x = -Input.GetAxis(&quot;Mouse X&quot;) * rotateSpeed; delta_rotation_y = Input.GetAxis(&quot;Mouse Y&quot;) * rotateSpeed; transform.Rotate(0, delta_rotation_x, 0, Space.World); transform.Rotate(delta_rotation_y, 0, 0); &#125; //摄像机缩放 if (Input.GetAxis(&quot;Mouse ScrollWheel&quot;) != 0) &#123; delta_z = -Input.GetAxis(&quot;Mouse ScrollWheel&quot;) * zoomSpeed;// //第一种方法，改变注摄像机的filedOfView// Camera.main.fieldOfView += delta_z;// if (Camera.main.fieldOfView &lt; 10) Camera.main.fieldOfView = 10;// if (Camera.main.fieldOfView &gt; 100) Camera.main.fieldOfView = 100; //第二种方法，改变摄像机的Z轴值 transform.Translate(0, 0, -delta_z); if (transform.localPosition.z &gt; -2) &#123; transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -2); &#125; if (transform.localPosition.z &lt; -25) &#123; transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -25); &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity物体基本运动]]></title>
+    <url>%2F2017%2F10%2F30%2FUnity%20%E7%89%A9%E4%BD%93%E5%9F%BA%E6%9C%AC%E8%BF%90%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[基础1.获取方向键1234Input.GetAxis(&quot;Horizontal&quot;) &gt; 0; //右方向键Input.GetAxis(&quot;Horizontal&quot;) &lt; 0; //左方向键Input.GetAxis(&quot;Vertical&quot;) &gt; 0; //上方向键Input.GetAxis(&quot;Vertical&quot;) &lt; 0; //下方向键 2.获取键盘KeyCode 列表请参考Unity官网：https://docs.unity3d.com/ScriptReference/KeyCode.html12345Input.anyKeyDown //任意键按下Input.anyKey //任意键按下不放Input.GetKey(KeyCode.A) //字母“A”按下不放Input.GetKeyDown(KeyCode.Space) //空格键按下Input.GetKeyUp(KeyCode.Escape) //Esc键松开 3.获取鼠标点击 1234567891011121314Input.GetMouseButton(0) //按压鼠标左键Input.GetMouseButton(1) //按压鼠标右键Input.GetMouseButton(2) //按压滚轮键(待验证)Input.GetMouseButtonDown(0) //点击鼠标左键Input.GetMouseButtonDown(1) //点击鼠标右键Input.GetMouseButtonDown(2) //点击滚轮键(待验证)Input.GetMouseButtonUp(0) //抬起鼠标左键Input.GetMouseButtonUp(1) //抬起鼠标右键Input.GetMouseButtonUp(2) //抬起滚轮键Input.mousePosition //鼠标点击的像素位置Input.GetAxis(&quot;Mouse X&quot;)&gt;0 //鼠标沿着屏幕X移动时触发,向右Input.GetAxis(&quot;Mouse X&quot;)&lt;0 //鼠标沿着屏幕X移动时触发,向左Input.GetAxis(&quot;Mouse Y&quot;)&gt;0 //鼠标沿着屏幕Y移动时触发,向上Input.GetAxis(&quot;Mouse Y&quot;)&lt;0 //鼠标沿着屏幕Y移动时触发,向下 4.获取滚轮的滚动12Input.GetAxis(&quot;Mouse ScrollWheel&quot;)&gt;0 //向上滚动Input.GetAxis(&quot;Mouse ScrollWheel&quot;)&lt;0 //向下滚动 5.获取触摸屏参数1234Input.touchCount //触摸手指个数Input.GetTouch(i) //得到第i个触摸手指if (Input.GetTouch(0).phase == TouchPhase.Moved) //判断手指是否触摸移动Input.GetTouch(0).deltaPosition //从上一帧开始获取手指的移动 TouchPhase类型： 物体移动1.指定方向移动2.全方向移动3.坐标移动 指定方向移动和全方位移动，都是按照物体本身的轴所移动的，坐标移动是按照世界坐标移动的。示例：1234567891011121314151617181920212223242526272829public float speed = 1f;void Update () &#123; //指定方向移动 if (Input.GetAxis(&quot;Horizontal&quot;) &gt; 0) //左右方向键，&gt;0为右方向键 &#123; transform.Translate(Vector3.forward * speed * Time.deltaTime); &#125; if(Input.GetAxis(&quot;Vertical&quot;) &lt; 0) //上下方向键，&lt;0为下方向键 &#123; transform.Translate(Vector3.right * speed * Time.deltaTime); &#125; //全方向移动 if (Input.GetKey(KeyCode.K)) &#123; transform.Translate(speed * Time.deltaTime,0, speed*Time.deltaTime); &#125; //坐标移动 if (Input.GetKey(KeyCode.Z)) &#123; transform.localPosition += new Vector3(speed * Time.deltaTime, 0, speed * Time.deltaTime); &#125; if(Input.GetKey(KeyCode.M)) &#123; transform.position += new Vector3(speed * Time.deltaTime, 0, speed * Time.deltaTime); &#125;&#125; 物体旋转1.Rotate();2.transform.localRotation,transform.rotation3.RotateAround();RotateAroundLocal(); 上面前两个比较常用，RotateAround 主要是围绕其他的物体做运动 12345678910111213141516171819202122232425262728293031public float speed = 2f;public Transform roundTran;public Vector3 rotateQua = Vector3.zero;private void Start()&#123; roundTran = this.transform.parent;&#125;void Update () &#123; if(Input.GetKey(KeyCode.R)) &#123; transform.Rotate(Vector3.up * speed * Time.deltaTime); &#125; if(Input.GetMouseButton(0)) //点击鼠标左键 &#123; transform.RotateAround(roundTran.transform.localPosition,Vector3.forward,speed *Time.deltaTime); &#125; if(Input.touchCount&gt;0 &amp;&amp; Input.GetTouch(0).phase == TouchPhase.Moved) //触摸屏，点击一个手指，并且移动时 &#123; Vector2 touchDeltaPos = Input.GetTouch(0).deltaPosition; transform.localRotation = Quaternion.Euler(touchDeltaPos.x * speed * Time.deltaTime, 0, touchDeltaPos.y * speed * Time.deltaTime); &#125; if(Input.GetKey(KeyCode.L)) &#123; rotateQua += new Vector3(10 * speed * Time.deltaTime, 10 * speed * Time.deltaTime, 0); transform.localRotation = Quaternion.Euler(rotateQua); &#125;&#125; 物体缩放1.localScale2.相机的拉近拉远，Camera的filedOfView123456789101112131415161718192021222324252627282930313233public float speed = 3;RaycastHit hit;private float scale = 1;private float cameraField = 60; void Start()&#123; cameraField = Camera.main.fieldOfView;&#125;void Update()&#123; //从主摄像机发射一条射线 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); if (Physics.Raycast(ray, out hit)) &#123; if(hit.transform == this.transform) &#123; if (Input.GetAxis(&quot;Mouse ScrollWheel&quot;) != 0) &#123; scale += Input.GetAxis(&quot;Mouse ScrollWheel&quot;) * speed * Time.deltaTime; transform.localScale = new Vector3(scale, scale, scale); //设置Camera的fieldOfView来放大缩小物体，其实不太好，除非一开始摄像机就看向物体。 //cameraField += -1 * Input.GetAxis(&quot;Mouse ScrollWheel&quot;) * speed * Time.deltaTime; //Camera.main.fieldOfView = cameraField; //Camera.main.transform.LookAt(this.transform); &#125; &#125; &#125; &#125; 其中四元数是略懂，只是知道能够防止万向锁，希望在应用中深入理解吧 参考网址：http://www.cnblogs.com/fortomorrow/archive/2012/10/30/unity05.html四元数：http://blog.csdn.net/candycat1992/article/details/41254799http://www.taikr.com/article/535]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 雷达图]]></title>
+    <url>%2F2017%2F10%2F27%2FUnity-%E9%9B%B7%E8%BE%BE%E5%9B%BE%2F</url>
+    <content type="text"><![CDATA[1.原理篇UGUI是一个CanvasRenderer进行绘制，所有的控件和可显示的元素都是Graphic。比方说Image，Text 都是继承Graphic，有Graphic肯定是要有CanvasRenderer的。关于Graphic的一些绘制原理可以查看参考网站的第一个网址。 我这里绘制的雷达图，也是在UGUI上，通过继承Graphic，连接中心点和多边形的顶点绘制三角形绘制的。 2.最后来上代码 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576using UnityEngine;using UnityEngine.UI;using System.Collections;using System.Collections.Generic;/// &lt;summary&gt;/// 绘制多边形雷达图/// 以下是五边形的顶点示意图，以中心点为原点，绘制5个三角形，012，023，034，045，051/// /// 2/// /// 3 0 1/// /// 4 5/// &lt;/summary&gt;[AddComponentMenu(&quot;UI/Polygon&quot;)]public class Polygon : Graphic&#123; private List&lt;Vector2&gt; vertexList = new List&lt;Vector2&gt;(); //顶点的坐标，顶点数量必须大于2 public List&lt;float&gt; VertextRanges = new List&lt;float&gt;() &#123; 1,1,1,1,1 &#125;; private int PointCount = 5; public float Max_Value = 100.0f; private Vector2 OriPoint = new Vector2(0, 0); protected override void Start() &#123; base.Start(); Init(); &#125; private void Init() &#123; vertexList.Clear(); for(int i=0;i&lt;PointCount;i++) &#123; float cornerAngle = 2.0f * Mathf.PI / 360 * (18 + (360/PointCount) * i); vertexList.Add(new Vector2(Max_Value * VertextRanges[i] * Mathf.Cos(cornerAngle), Max_Value * VertextRanges[i] * Mathf.Sin(cornerAngle))); &#125; &#125; protected override void OnPopulateMesh(VertexHelper vh) &#123; base.OnPopulateMesh(vh); Init(); List&lt;UIVertex&gt; targetVertexList = new List&lt;UIVertex&gt;(); for(int i=0;i&lt;vertexList.Count;i++) &#123; UIVertex oriVertex = new UIVertex(); oriVertex.position = OriPoint; oriVertex.color = color; targetVertexList.Add(oriVertex); for (int j =0;j&lt;2;j++) &#123; UIVertex vertex = new UIVertex(); if(i+j &gt;= vertexList.Count) &#123; vertex.position = vertexList[i + j - vertexList.Count]; &#125;else &#123; vertex.position = vertexList[i + j]; &#125; vertex.color = color; targetVertexList.Add(vertex); &#125; &#125; vh.Clear(); vh.AddUIVertexTriangleStream(targetVertexList); &#125;&#125; 效果图： 参考网址：http://blog.csdn.net/langresser_king/article/details/46928197http://www.xshadow.org/index.php/archives/73]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>UGUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[科学上网的那些事]]></title>
+    <url>%2F2017%2F10%2F27%2F%E7%BF%BB%E5%A2%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
+    <content type="text"><![CDATA[ShadowSocks（影梭）不完全指南影梭是我用的比较久的一个科学上网工具。13年和14年左右用到蓝灯，现在已经不太好用了。影梭也都是用免费的账号密码，不过这段时间也不好用。 DomeCross插件穹顶穿越是最近才买的一个浏览器插件，适合基于Chrome浏览器的插件，一个月9块钱，还是挺便宜的，现在用了一两天，感觉速度也挺快。 搬瓦工因为前两天无法科学上网，也没有DomeCross插件，导致我Hexo官网都无法打开，所以很想买个VPS，就瞄准了搬瓦工。搬瓦工的19.99美元一年的最低配的VPS，我感觉就可以满足我的需求。但就是没有货，所以先买个浏览器插件先用着，等什么时候有货了，一定要买一个VPS。关于VPS，根据VPS大全中的说法，买KVM的机房是比较好的。搬瓦工全部套餐地址 搬瓦工优惠码和购买教程也可以在买的时候重新查一下。 像早期的红杏买了一年，结果开发者被请去喝茶了，我只用了一个月不到就没得用了，钱也没退。希望DomeCross可以稳定些，也希望我能尽快买个VPS。]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>科学上网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SteamVR和VRTK]]></title>
+    <url>%2F2017%2F08%2F17%2FSteamVR%20%E5%88%9D%E6%8E%A5%E8%A7%A6%2F</url>
+    <content type="text"><![CDATA[SteamVR最近又重新看了SteamVR，发现场景可以用一个代码过渡切换。所以常学常新还是有道理的。 VRTKVRTK的所有例子我都做了一遍，看了一遍，然后写出了一些抓取的代码，现在使用的还有些少，希望能够用上。 关于SteamVR，感觉也就是相关的事件少一些，就是VRTK要多一些平台。 参考链接：SteamVR脚本解析Camera 组件介绍手柄事件SteamVR_Control 详解（大概的一个工作流程和会用到的组件）手柄射线拾取抓取物体、投掷 （父物体为手柄的方法，还有很多错误的解决方法）手柄抓取物体（最常见的一篇文章，感觉上面一篇文章更好些）抓取和投掷（父物体方法）Unity中Tracker问题SteamVR(HTC Vive) Unity插件深度分析VRTK DocumentationSteamVR Unity工具包（三）：控制器交互VRTK 3.2.0版本Demo详解SteamVR(HTC Vive) Unity插件深度分析（四）开发HTC Vive应用的重要资源]]></content>
+      <tags>
+        <tag>VR</tag>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DoTween 序列和路径]]></title>
+    <url>%2F2017%2F08%2F13%2FDoTween%20%E5%BA%8F%E5%88%97%2F</url>
+    <content type="text"><![CDATA[参考来自：http://blog.csdn.net/lyh916/article/details/45888117 创建Sequence：Sequence可以包含Sequence，当执行一个Sequence时会顺序执行Tweener，可以使用Insert方法实现同时执行。Sequence的方法： 1234567891011static DOTween.Sequence() Append(Tween tween) AppendCallback(TweenCallback callback) AppendInterval(float interval) Insert(float atPosition, Tween tween) InsertCallback(float atPosition, TweenCallback callback) Join(Tween tween) Prepend(Tween tween) PrependCallback(TweenCallback callback) PrependInterval(float interval) 例子：12345678910// Grab a free Sequence to use Sequence mySequence = DOTween.Sequence(); // Add a movement tween at the beginning mySequence.Append(transform.DOMoveX(2, 1)); // Add a rotation tween as soon as the previous one is finished mySequence.Append(transform.DORotate(new Vector3(0, 180, 0), 1)); // Delay the whole Sequence by 1 second mySequence.PrependInterval(1); // Insert a scale tween for the whole duration of the Sequence mySequence.Insert(0, transform.DOScale(new Vector3(2, 2, 2), mySequence.Duration())); 等同于：12345Sequence mySequence = DOTween.Sequence();mySequence.Append(transform.DOMoveX(2, 1)) //第一个运动 .Append(transform.DORotate(new Vector3(0, 180, 0), 1)) //第二个运动 .PrependInterval(1) //运动延迟 .Insert(0, transform.DOScale(new Vector3(2, 2, 2), mySequence.Duration()));//跟上两个运动同时进行的运动 参考网址：http://blog.csdn.net/u014230923/article/details/51469848]]></content>
+      <tags>
+        <tag>Unity,DoTween</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 打开安卓相册和相机所遇到的问题]]></title>
+    <url>%2F2017%2F07%2F11%2FUnity%20%E6%89%93%E5%BC%80%E5%AE%89%E5%8D%93%E7%9B%B8%E5%86%8C%E5%92%8C%E7%9B%B8%E6%9C%BA%E6%89%80%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[Unity在接入安卓的打开相册和相机时遇到了很多意想不到的问题。首先，我用的是Unity 5.5.3p1，跟我以前用的4.x版本相差甚远，之前的jar，变成了aar，然后Android Studio没有怎么使用过，遇到了好多SDK方面的错误。我把android 项目弄好了导出aar，导入Unity 中后又遇到了导不出apk的情况。这个问题解决完成后，测试不同的手机，结果发现小米的打开相册后会把原有的Activity注销掉，导致打开相册的重启。实在是令人头疼的一系列事情。小米手机还有一个存储图片的问题，这个问题是在裁剪完成后，先保存本地的一个临时文件，然后在用临时文件生成base64，传递给Unity。这里和雨松MOMO的做法不同，雨松是裁剪完后存储到Unity 所访问的位置，我是直接传递base64了。现小米打开相册后销毁原Activity 的问题还未解决。最后打开相册或相机的代码，仅供参考：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164165166167168169170171172173174175176177178179180181182183184185186187188189190191192193194195196197198199200201public class WebViewActivity extends Activity &#123; public static final int NONE = 0; public static final int PHOTOHRAPH = 1;// 拍照 public static final int PHOTOZOOM = 2; // 缩放 public static final int PHOTORESOULT = 3;// 结果 public final static int IMAGE_SIZE = 500; public static final String IMAGE_UNSPECIFIED = "image/*"; public final static String FILE_NOTGET = "FILE_NOTGET"; public static String FILE_BASE64 = ""; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); setContentView(R.layout.main); String type = this.getIntent().getStringExtra("type"); //在这里判断是打开本地相册还是直接照相 if(type.equals("takePhoto")) &#123; Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "temp.jpg"))); startActivityForResult(intent, PHOTOHRAPH); &#125;else &#123; Intent intent = new Intent(Intent.ACTION_GET_CONTENT); intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_UNSPECIFIED); startActivityForResult(intent, PHOTOZOOM); &#125; &#125; @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123; if (resultCode == NONE) &#123; if(data == null) &#123; UnityPlayer.UnitySendMessage("Main Camera","message",FILE_NOTGET); this.finish(); &#125;else &#123; if(this.isFinishing() == false) &#123; this.finish(); &#125; UnityPlayer.UnitySendMessage("Main Camera","message",FILE_NOTGET); &#125; return; &#125; // 拍照 if (requestCode == PHOTOHRAPH) &#123; //设置文件保存路径这里放在跟目录下 File picture = new File(Environment.getExternalStorageDirectory() + "/temp.jpg"); Uri testURi = Uri.fromFile(picture); if (testURi != null) &#123; startPhotoZoom_New(testURi,IMAGE_SIZE); &#125; else &#123; UnityPlayer.UnitySendMessage("Main Camera","message",FILE_NOTGET); &#125; &#125; if (requestCode != PHOTOHRAPH) &#123; if (data == null) &#123; UnityPlayer.UnitySendMessage("Main Camera", "message", FILE_NOTGET); this.finish(); &#125; &#125;else &#123; if(data == null) &#123; return; &#125; &#125; // 读取相册缩放图片 if (requestCode == PHOTOZOOM) &#123; Uri galleryPhotoUri = data.getData(); startPhotoZoom_New(galleryPhotoUri,IMAGE_SIZE); &#125; // 处理结果 if (requestCode == PHOTORESOULT) &#123; File picture = new File(Environment.getExternalStorageDirectory().getPath() + "/" + "small.jpg"); Uri getUri = Uri.fromFile(picture); if(getUri != null) &#123; Bitmap getBitmap = convertBM(getUri); try&#123; FILE_BASE64 = bitmapToBase64(getBitmap); UnityPlayer.UnitySendMessage("Main Camera","message",FILE_BASE64); this.finish(); &#125;catch (Exception ex) &#123; Log.i("abc",ex.getMessage()); ex.printStackTrace(); &#125; &#125; &#125; super.onActivityResult(requestCode, resultCode, data); &#125; private Bitmap convertBM(Uri uri) &#123; InputStream is; try &#123; //Uri ----&gt; InputStream is = getContentResolver().openInputStream(uri); //InputStream ----&gt; Bitmap Bitmap bm = BitmapFactory.decodeStream(is); //关闭流 is.close(); return bm; &#125; catch (FileNotFoundException e) &#123; e.printStackTrace(); return null; &#125; catch (IOException e) &#123; e.printStackTrace(); return null; &#125; &#125; public String bitmapToBase64(Bitmap bitmap) &#123; String result = null; ByteArrayOutputStream baos = null; try &#123; if (bitmap != null) &#123; baos = new ByteArrayOutputStream(); bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); baos.flush(); baos.close(); byte[] bitmapBytes = baos.toByteArray(); result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT); &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; finally &#123; try &#123; if (baos != null) &#123; baos.flush(); baos.close(); &#125; &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; return result; &#125; public static Bitmap base64ToBitmap(String base64Data) &#123; byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT); return BitmapFactory.decodeByteArray(bytes, 0, bytes.length); &#125; /** * 裁剪图片 */ private void startPhotoZoom_New(Uri uri, int size) &#123; Intent intent = new Intent("com.android.camera.action.CROP"); intent.setDataAndType(uri, "image/*"); // crop为true是设置在开启的intent中设置显示的view可以剪裁 intent.putExtra("crop", "true"); // aspectX aspectY 是宽高的比例 intent.putExtra("aspectX", 1); intent.putExtra("aspectY", 1); // outputX,outputY 是剪裁图片的宽高 intent.putExtra("outputX", size); intent.putExtra("outputY", size); /** * 此方法返回的图片只能是小图片（sumsang测试为高宽160px的图片） * 故将图片保存在Uri中，调用时将Uri转换为Bitmap，此方法还可解决miui系统不能return data的问题 */ Uri uritempFile = Uri.parse("file:///" + Environment.getExternalStorageDirectory().getPath() + "/" + "small.jpg"); intent.putExtra(MediaStore.EXTRA_OUTPUT, uritempFile); intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString()); startActivityForResult(intent, PHOTORESOULT); &#125; @Override public boolean onKeyDown(int keyCode, KeyEvent event) &#123; if (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp; event.getRepeatCount() == 0) &#123; UnityPlayer.UnitySendMessage("Main Camera","message",FILE_BASE64); &#125; return super.onKeyDown(keyCode, event); &#125; &#125;]]></content>
+      <tags>
+        <tag>Unity Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 路径问题]]></title>
+    <url>%2F2017%2F06%2F21%2FUnity%20%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[最近使用Handheld.PlayFullScreenMovie播放视频，因为不想放在StreamingAssets下导致包的大小太大。所以，想着使用WWW下载存储在本地，记录存储路径，然后播放视频。测试后发现安卓是没有问题的，iOS路径不对。一开始以为是设置权限问题，结果找了半天，还是没找到，然后把视频模块拆出来，单独测试，结果还是一样，最后发现是iOS路径前要加”file://“。无法形容我的心情，WWW加载StreamingAssets下的配置文件时，也出现了路径问题，这个因为网上问的人比较多，所以很快找到了问题，也是路径前加”file:///“。我还在想是不是iOS的Handheld.PlayFullScreenMovie不支持其他路径播放，我还是太单纯了。下面是各个路径的分类： 加载StreamingAssets下的文件路径 12345678910 public string dirPath =#if UNITY_ANDROID &amp;&amp; !UNITY_EDITOR Application.streamingAssetsPath; #elif UNITY_IPHONE &amp;&amp; !UNITY_EDITOR "file:///"+ Application.streamingAssetsPath;#elif UNITY_STANDALONE_WIN || UNITY_EDITOR "file:///" + Application.dataPath + "/StreamingAssets";#else string.Empty; #endif 存储视频路径 和使用Handheld.PlayFullScreenMovie 播放存储视频路径 一般视频下载完后(WWW下载),我都存储在Application.persistentDataPath 下; 123456789101112131415public void CreateFile(byte[] bytes, string filePathName) &#123; Stream str; if (!File.Exists(filePathName)) &#123; FileInfo file = new FileInfo(filePathName); str = file.Create(); //文件写入 str.Write(bytes, 0, bytes.Length); //关闭并销毁流 str.Close(); str.Dispose(); &#125; &#125; 写入完成后，播放视频的路径： 12345678910 public string dirPath =#if UNITY_ANDROID &amp;&amp; !UNITY_EDITOR Application.persistentDataPath; #elif UNITY_IPHONE &amp;&amp; !UNITY_EDITOR "file://"+ Application.persistentDataPath;#elif UNITY_STANDALONE_WIN || UNITY_EDITOR Application.persistentDataPath;#else string.Empty; #endif 下次如果遇到路径问题，第一时间要想到是否加”file://“ 或”file:///“。]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[生成不重复随机数组]]></title>
+    <url>%2F2017%2F06%2F11%2F%E7%94%9F%E6%88%90%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%BB%84%2F</url>
+    <content type="text"><![CDATA[C#生成不重复随机数组这里主要是总结别人的方法，以备不时之需。 利用提高随机种子进行随机生成 1234567891011121314151617for (int i = 0; i &lt; 5; i++)&#123; Random r = new Random(int.Parse(DateTime.Now.ToString("HHmmssfff")) + i); int num = r.Next(0, 1000);//随机生成一个整数 string tempStr = string.Empty; for (int j = 0; j &lt; 4; j++) &#123; r = new Random(int.Parse(DateTime.Now.ToString("HHmmssfff")) + i + j); int x = r.Next(65, 90);//65-90代表A-Z的ASCII值 char a = (char)x; tempStr += a.ToString(); &#125; Console.WriteLine("num" + i.ToString() + "的值是：" + num); Console.WriteLine("tempStr" + i.ToString() + "的值是：" + tempStr);&#125; 利用Hashtable 123456789101112Hashtable hashtable = new Hashtable(); Random rm = new Random(); int RmNum = 10; for (int i = 0; hashtable.Count &lt; RmNum; i++) &#123; int nValue = rm.Next(100); if (!hashtable.ContainsValue(nValue) &amp;&amp; nValue != 0) &#123; hashtable.Add(nValue, nValue); Console.WriteLine(nValue.ToString()); &#125; &#125; 使用Guid类生成随机数。还没弄清楚之前不推荐，测试结果并不好 12345678910public static int GetRandomNumber(int min, int max)&#123; int rtn = 0; Random r = new Random(); byte[] buffer = Guid.NewGuid().ToByteArray(); int iSeed = BitConverter.ToInt32(buffer, 0); r = new Random(iSeed); rtn = r.Next(min, max + 1); return rtn;&#125; 递归，用它来检测生成的随机数是否有重复，如果取出来的数字和已取得的数字有重复就重新随机获取，测试还是有重复。 12345678910111213141516171819202122232425Random ra=new Random(unchecked((int)DateTime.Now.Ticks));int[] arrNum=new int[10];int tmp=0;int minValue=1;int maxValue=10;for (int i=0;i&lt;10;i++)&#123; tmp=ra.Next(minValue,maxValue); //随机取数 arrNum[i]=getNum(arrNum,tmp,minValue,maxValue,ra); //取出值赋到数组中&#125;public int getNum(int[] arrNum,int tmp,int minValue,int maxValue,Random ra)&#123; int n=0; while (n&lt;=arrNum.Length-1) &#123; if (arrNum[n]==tmp) //利用循环判断是否有重复 &#123; tmp=ra.Next(minValue,maxValue); //重新随机获取。 getNum(arrNum,tmp,minValue,maxValue,ra);//递归:如果取出来的数字和已取得的数字有重复就重新随机获取。 &#125; n++; &#125; return tmp;&#125; 以产生100以内不重复的随机数为例，可以考虑先把这100个数放在一个数组内，每次随机取一个位置（第一次是1-100，第二次是1-99，…），将该位置的数与最后一个位置的数对调就可以了。 123456789101112131415161718192021222324252627public static int[] GetRandomArray(int Number, int minNum, int maxNum)&#123; int j; int[] b = new int[Number]; Random r = new Random(); for (j = 0; j &lt; Number; j++) &#123; int i = r.Next(minNum, maxNum); int num = 0; for (int k = 0; k &lt;j;k++) &#123; if (b[k] == i) &#123; num = num + 1; &#125; &#125; if (num == 0) &#123; b[j] = i; &#125; else &#123; j = j - 1; &#125; &#125; return b;&#125; 网上说当注重效率时，也可以使用字典，方法很多。Guid类这个还需要进一步研究了。 参考链接： http://www.cnblogs.com/programsky/p/5408697.htmlhttp://www.jb51.net/article/66255.htmhttp://www.cnblogs.com/AmatVictorialCuram/p/5426936.htmlhttp://www.cnblogs.com/falla/archive/2010/01/29/1659399.htmlhttp://www.manew.com/2843.htmlhttp://bbs.csdn.net/topics/392005427?page=1一个伪随机数生成算法：http://blog.csdn.net/yangsh3002/article/details/6180922]]></content>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UGUI制作聊天]]></title>
+    <url>%2F2017%2F06%2F11%2FUGUI%E5%88%B6%E4%BD%9C%E8%81%8A%E5%A4%A9%2F</url>
+    <content type="text"><![CDATA[首先基础的是建一个Image，在Image下建一个Text。我这里聊天的左项和右项设置有些不同。 这样设置完成后的效果，是没有换行的。所以在多文字需换行时，我会把文字的ContentSizeFitter的horizontalFit设置成ContentSizeFitter.FitMode.UnconstrainedRectTransform 的sizeDeta设置一个固定的宽。这样横向没有自适应宽度后，给定一个固定的宽度，Horizontal Overflow 设置成wrap，Vertical Overflow设置成Overflow，它就会自动换行。 这样一个大概的聊天就出来了。]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 遇到的一些小问题]]></title>
+    <url>%2F2017%2F06%2F06%2FUnity%20%C2%9A%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[这些问题都是工作中遇到的一些问题，现在来总结一下。工作中用到的是UGUI（随机数的不重复） Text 首行缩进，使用全角空格(/U3000)，还算是一种解决方法。 在写单例时，注意不要继承Monobehavior，容易出现问题。 Text 在文字赋值后，立刻获取preferredWidth属性，获取的值并不是总是正确的，但在协程中等待当前帧结束获取的值，会比较接近。IEnumerator SetTextHeight(){ yieldreturnnew WaitForEndOfFrame(); var width = ContentText.preferredWidth;} 在ScrollRect拖拽时，怎样判断向上还是向下拖拽？OnEndDrag时，得到Content，根据content的LocalPosition的y值判定，&gt;0 是向上拖拽，&lt;0 是向下拖拽。 ScrollView的深入了解使用scrollview自动添加垂直项时，使用Vertical Layout Group和content size fitter 两个控件，其中content size fitter 的vertical fit 使用min sizeVertical Layout Group的child alignment 可以设置排列的对齐。 UGUI 自适应Rect Transform 的stretch 可以设置自适应，感觉很好玩。同时点击shift和alt 又是另一种效果。这里没有截到图，哇，一开始都没注意呢。 背包的拖拽放置背包的拖拽是在网上找到一种方法。首先先摆好格子和拖拽项(当然拖拽项也可以动态生成)，格子和拖拽项的tag分别设置为Grid 和 Item。然后写一个DragAndDrop的代码(名称随意)给拖拽项，其中代码的内容如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556private static Transform canvasTra; private Transform nowParent;//一般来说，物品是格子的子物体，nowParent记录的是当前物品属于哪个格子 private bool isRaycastLocationValid = true;//默认射线不能穿透物品 public void OnBeginDrag(PointerEventData eventData) &#123; if (canvasTra == null) canvasTra = GameObject.Find("Canvas").transform; nowParent = transform.parent; transform.SetParent(canvasTra);//将当前拖拽的物品置前 isRaycastLocationValid = false; &#125; public void OnDrag(PointerEventData eventData) &#123; transform.position = Input.mousePosition; &#125; public void OnEndDrag(PointerEventData eventData) &#123; GameObject go = eventData.pointerCurrentRaycast.gameObject; if (go != null) &#123; //Debug.Log(go.name); if (go.tag.Equals("Grid"))//放置到空格子 &#123; SetParentAndPosition(transform, go.transform); &#125; else if (go.tag.Equals("Item"))//交换位置，注意可能需要把物品下的子物体的Raycast Target关掉 &#123; SetParentAndPosition(transform, go.transform.parent.parent); SetParentAndPosition(go.transform.parent, nowParent); &#125; else &#123; SetParentAndPosition(transform, nowParent); &#125; &#125; else &#123; SetParentAndPosition(transform, nowParent); &#125; isRaycastLocationValid = true; &#125; private void SetParentAndPosition(Transform child, Transform parent) &#123; child.SetParent(parent); child.position = parent.position; &#125; public bool IsRaycastLocationValid(Vector2 sp, Camera eventCamera) &#123; return isRaycastLocationValid; &#125; 原理是当拖拽结束时，用射线判断是当前位置的物体的tag是拖拽项(Item)还是格子(Grid)，如果是格子直接成为格子的子物体，如果是拖拽项，交换他们的父物体。]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[添加新菜单页面]]></title>
+    <url>%2F2017%2F04%2F23%2F%E6%B7%BB%E5%8A%A0%E6%96%B0%E8%8F%9C%E5%8D%95%E9%A1%B5%E9%9D%A2%2F</url>
+    <content type="text"><![CDATA[1.在主题配置文件中，找到menu，添加想要添加的页面名称。2.在menu_icons中设置图标，图标是Font Awesome图标的名字。3.添加/修改翻译语言，这些翻译文本放置在 NexT 主题目录下的 languages/{language}.yml （{language} 为你所使用的语言）。4.新建页面（在hexo文件夹下）：hexo new page 页面名称5.如果是tags（标签）页面，在hexo/source下会新生成一个新的文件夹tags，在该文件夹下会有一个index.md文件，在这个文件中添加type: “tags”例： -–title: tagsdate: 2016-11-15 19:10:05type: “tags”-– 6.当要为某一篇文章添加标签，只需在myBlog/source/_post目录下的具体文章的tags中添加标签即可 例： -–title: 基于Hexo和Github搭建博客date: 2016-11-09tags: [npm, hexo, github]categories: 搭建博客-– 参考页面：http://theme-next.iissnan.com/getting-started.html http://blog.csdn.net/zuoziji416/article/details/53204478 http://fontawesome.dashgame.com/]]></content>
+      <tags>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NexT使用文档]]></title>
+    <url>%2F2017%2F04%2F22%2FNexT%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3%E9%93%BE%E6%8E%A5%2F</url>
+    <content type="text"><![CDATA[hexo 主题：https://hexo.io/themes/NexT 使用文档：http://theme-next.iissnan.com/getting-started.html]]></content>
+      <tags>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unity 打包apk遇到的一个问题]]></title>
+    <url>%2F2017%2F04%2F21%2FUnity%20%E6%89%93%E5%8C%85apk%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[参考网站：http://stackoverflow.com/questions/42538433/not-finding-android-sdk-unity 错误：1)Error: Invalid command androidUnityEditor.HostView:OnGUI()2)CommandInvokationFailure: Unable to list target platforms. Please make sure the android sdk path is correct. See the Console for more details.C:/Program Files/Java/jdk1.8.0_121\bin\java.exe -Xmx2048M -Dcom.android.sdkmanager.toolsdir=”C:/Users/great/AppData/Local/Android/Sdk\tools” -Dfile.encoding=UTF8 -jar “C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar” - stderr[Error:Invalid command android]stdout[ ]exit code: 64UnityEditor.Android.Command.Run (System.Diagnostics.ProcessStartInfo psi, UnityEditor.Android.WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg)UnityEditor.Android.AndroidSDKTools.RunCommandInternal (System.String javaExe, System.String sdkToolsDir, System.String[] sdkToolCommand, Int32 memoryMB, System.String workingdir, UnityEditor.Android.WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg)UnityEditor.Android.AndroidSDKTools.RunCommandSafe (System.String javaExe, System.String sdkToolsDir, System.String[] sdkToolCommand, Int32 memoryMB, System.String workingdir, UnityEditor.Android.WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg)UnityEditor.HostView:OnGUI()3)Error building Player: CommandInvokationFailure: Unable to list target platforms. Please make sure the android sdk path is correct. See the Console for more details.C:/Program Files/Java/jdk1.8.0_121\bin\java.exe -Xmx2048M -Dcom.android.sdkmanager.toolsdir=”C:/Users/great/AppData/Local/Android/Sdk\tools” -Dfile.encoding=UTF8 -jar “C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar” - stderr[Error:Invalid command android]stdout[ ]exit code: 64 解决方法重新下载一个Tools， http://dl-ssl.google.com/android/repository/tools_r25.2.5-windows.zip替换原有SDK文件夹中的Tools就可以了，原有文件夹记得备份。 又出现了错误CommandInvokationFailure: Unable to convert classes into dex format. See the Console for details.D:/Program Files/Java/jdk1.8.0_131\bin\java.exe -Xmx2048M -Dcom.android.sdkmanager.toolsdir=”D:/Users/ppooh/AppData/Local/Android/sdk\tools” -Dfile.encoding=UTF8 -jar “C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar” - Error building Player: CommandInvokationFailure: Unable to convert classes into dex format. See the Console for details.D:/Program Files/Java/jdk1.8.0_131\bin\java.exe -Xmx2048M -Dcom.android.sdkmanager.toolsdir=”D:/Users/ppooh/AppData/Local/Android/sdk\tools” -Dfile.encoding=UTF8 -jar “C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar” - 这两个错误后面还有一长串，我在想是不是我以前的工程挪到这上的时候有问题。等明天我找个新工程来试一下。参考：unity调用安卓打包apk时的错误unable to convert classes into dex format出现这种问题一般是由于有重复的文件所致，看下unity报的错误那些文件重复了，把重复的文件删了即可例如，将eclipse中的安卓工程bin\class导出jar包时，会将下面的.class文件打包，但选中的.class unity中已经含有了，把这些文件删除就行了 参考：http://blog.csdn.net/mengfanye1991/article/details/40820781]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[创建新文章，提交到github的流程]]></title>
+    <url>%2F2017%2F04%2F19%2F%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E7%AB%A0%EF%BC%8C%E6%8F%90%E4%BA%A4%E5%88%B0github%E7%9A%84%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[最近买了一台PC，惠普暗夜精灵，除了偶尔死机，其他都挺好。以前写的个人博客，想移植过来，着实费了一些功夫(主要好多东西都忘了)。下面记录一下大概流程 1. 以前的Hexo压缩包下载2. 安装Node.js和Git3. 配置Github $ cd ~/. ssh 检查本机的ssh密钥如果提示：No such file or directory 说明你是第一次使用git。生成新的SSH Key： $ ssh-keygen -t rsa -C “邮件地址@youremail.com”Generating public/private rsa key pair.Enter file in which to save the key(/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;注意1: 此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」然后系统会要你输入密码：Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;Enter same passphrase again:&lt;再次输入加密串&gt; 添加SSH Key到GitHub在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。1、打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。2、登陆github系统。点击右上角的 Account Settings—-&gt;SSH Public keys —-&gt; add another public keys3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了 测试是否配置成功 $ ssh -T git@github.com 设置用户信息$ git config –global user.name “cnfeat”//用户名$ git config –global user.email “cnfeat@gmail.com”//填写自己的邮箱 4. 重新安装hexo在hexo压缩包解压后的文件夹中重新安装hexo： $ npm install -g hexo 5. 调试是否设置成功hexo cleanhexo ghexo s 6. 在博客文件夹重新克隆博客项目git clone XX://XXX/XXX.XX.XX 7. 生成新文章hexo new “文章名”然后在sourse/_posts中找到生成的“文章名.md”可以参考以前的教程改写hexo g 生成hexo d(这个我的理解是可要可不要，需进一步确认)hexo s(localhost:4000)本地测试 8. 复制public的内容到博客文件夹可手动复制，也可在git中复制(这个没有掌握) 9. 在博客文件夹中提交工程git add .(或者知道新增的文件是那些，提交具体文件也可以)git commit -m “版本记录”git push -u origin master 10. 最后测试可登录github 测试，也可等几分钟登录博客地址测试 PS:这个经验吧，应该不太适合大众，只适合我自己 参考：http://blog.csdn.net/poem_of_sunshine/article/details/29369785]]></content>
+      <tags>
+        <tag>Hexo and Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[改善情绪的正念疗法 4]]></title>
+    <url>%2F2017%2F04%2F18%2F%E6%94%B9%E5%96%84%E6%83%85%E7%BB%AA%E7%9A%84%E6%AD%A3%E5%BF%B5%E7%96%97%E6%B3%95-4%2F</url>
+    <content type="text"><![CDATA[改变情绪的正念疗法引子因为找工作的原因发现自己的情绪非常不稳定，所以去万能的知乎查找了相关方面的东西，结果找到了幸福课和改善情绪的正念疗法这两个东西，幸福课正在学习，就开始看改善情绪的正念疗法了。看了大概有60页的内容了，写了三个笔记在Draft，家里网速不好，Draft需要实时联网，所以就想起来我的个人博客网站了。也是希望自己能够养成一个很好的阅读学习习惯。 7.18 重新开始阅读缺乏觉察力使得我们看不见其他的可能性。 直接去体验变化盲视生活正以这种方式，在我们不知情的状况下一点一滴、时时刻刻地悄然溜走。总是想着要去某一个地方，却几乎不曾注意到我们此刻所处的风景,。我们总是以为，不论任何时间任何地点，只有去另外的某个地方，才会感到快乐。到那时候，我们才会“有时间休息”。于是，我们推迟了自己的快乐，没有向此刻的经验敞开怀抱。结果，我们就像错过了洗盘子和喝咖啡那样，错失了生活中每一刻展现出来的魅力。如果我们继续浑浑噩噩的话，也许还会以这种方式错过生活中大部分的色彩。 超越寻常的目标追求行动模式就是通过锚定现实状态和理想状态之间的差异，来达到预定设定目标的一种模式。而存在模式而不考虑事物的现实善和我们希望它达到的状态。至少在原则上它没有任何需要完成的目标。这种非努力的倾向可以帮助我们从行动模式狭隘的目标追求中解脱出来。 接近而不是逃避接近（approach）和逃避（avoidance）机制是一切生命系统和生物生存的基础。正念的性质并非中性或者空白的状态。真正的正念是充满着温暖、热情和兴趣的。正念的本质就是关注：凡是有兴趣存在的地方，就会有自然而非强迫的注意跟随。 日常生活的正念主要的方法就是对我们做的任何事情都进行温和的注意。不论我们做任何事情，都尽可能地用全新的、每时每刻的、非评价的觉察去面对它们。我们要做的第一步就是辨认出自动思维出现的时刻，并且有意地用一种更加开阔、仁慈和智慧的觉察去面对它。 即使一个小小的正念也可以在某一刻打破抑郁的顽固锁链。第4章 正念式呼吸和行走觉察的入口训练气定神闲我们需要通过选择注意的点和注意的方式来实现上述目标。为了使这个策略奏效，我们还需要发展一定程度的动机和意向性，以防止被大脑根深蒂固的旧反应模式所摆布。那些努力压抑负性思维的人最终会比不做任何努力的人感到更加抑郁。从类似的研究中，很多心理学家终于确认了冥想智慧早就指出的结论：试图压抑不想要的念头并不是让头脑冷静而澄明的有效方法。注意此时此地所发生的事情，需要的是意志，而不是强制力。 意志什么时候优于强制力传统上，我们常常把开发头脑的稳定情绪的能力比喻成处理一杯泥水。如果你不断搅拌这杯水，那么它永远都是浑浊的。但是如果你耐心地等待，那么泥土最终会沉到杯底，留下干净纯洁的水浮在上面。同样地，如果我们试图稳定、控制思维，那么只能把事情搅乱，让一切变得更加浑浊。但是如果我们让大脑专注于某件事情，那么或许可以摆脱上述的思维模式。当我们有意识地放弃控制事物的努力，头脑就会自动地安静下来，留给我们更加冷静而澄明的空间。 正念式呼吸当头脑被想法、感受、身体感觉以及外部的分心物吸走时，我们将很难保持对呼吸的觉察。但是，如果我们能够把思维的波动理解成“大脑在做的某件事”，那么情况可能会相对容易些——就像看待水面的波澜那样平常。如果我们把思维的波动看成是自然而不可避免的事，那么注意在意识中的来去就是练习的核心部分，而不是偏离或者背道而驰了。从中我们可以学到一些必须的知识：觉察出行动模式的出现，摆脱行动模式，然后进入存在模式。不需要任何陈规戒律，也不需要达到任何特定的目标。尽量让生活顺其自然，不需要有任何标新立异。尽量宽容地对待我们的觉察，把思维的游离看成培养耐心和宽容的机会，对生活报以更大的慈悲和同情。 意料之外的宁静正念式冥想是一种对当前状态的积极回应，让我们从沉思式思维的本能反应中解脱出来。 应对思维的游离由发现到期待我们与其把这些目标驱动和批判性的思维当做“崩溃”的理由，不如把它们看成是一种提醒，告诉我们“实现某个目标”或者“取得进步”的口号很容易让我们陷入抑郁。这样，我们才能像第2章中描述的那样，把思维和情绪仅仅当做思维和情绪来对待，——认识到它们既不准确也没有特别的帮助。 接受思维的游离，重新开始挣扎得最痛苦的时刻正是能够学到最多东西的时刻。在重新开始的那一刹那，虽然你的内心还在争扎，但你会体验到片刻的欢愉，那是一种回家的熟悉感或者是认出某个老朋友的欣喜之情。然后，这种感觉能够唤醒好奇心和冒险意识，让我们在想放弃的时候仍然有勇气继续坚持下去。 顺其自然：放弃控制专注地呼吸：感受此刻如果我们有意地把精力集中于眼前的事，那么就会有力量去完成当前的任务。 正念式行走如果这些生理运动能够伴随着觉察和有意的注意转换，那么它们都可以是潜在的正念练习。行走式冥想是在运动中培养正念的有效方式 在行走中学习在同一条路上单纯地来回行走，——象征着一个主题：“不需要去任何地方，不需要做任何事，不需要争取任何东西”。你只需要单纯地活在当下，关注着眼前的这一步。 从无觉察到觉察我们进行正念式的呼吸或者行走的练习是为了获得更多的觉察，而不是为了清空思想或者其他的东西。心智的明晰和平和是这种觉察的产物，是让事物顺其自然的产物，如果我们把一时的平静作为进步的标志，把一时的烦躁作为退步的标志，那么我们只是在播撒挫败和绝望的种子，让行动模式把“成果”和某些目标又做了一次比较而已只要我们仍执着于摆脱郁闷的想法，或者试图获得心灵的平静，那么我们就会一直挫败下去。正念练习的目的不是去强行控制思想，而是去知觉健康或有害的思维模式。它让我们的心智和身体达到一种好奇、开放和接受的状态，让我们活在当下，不再做无意义的挣扎。通过这种方式，我们可以一点一滴地从旧的思维模式中解脱出来。我们会开始明白自己要做的正是眼前的事情。我们将会慢慢实现从无觉察到觉察状态的优雅转身。]]></content>
+      <tags>
+        <tag>改善情绪的正念疗法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[福]]></title>
+    <url>%2F2017%2F01%2F19%2F%E7%A6%8F%2F</url>
+    <content type="text"><![CDATA[和上一年一样，支付宝集福活动，上一年没有参加，今年因为VR比较感兴趣，所以参加了。用百度图片弄出了福字，只扫出三张富强福，再扫就啥都没有了，呵呵哒。听说今年集齐的人比较多，估计能分的钱很少下面就是福字]]></content>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[文章增加测试]]></title>
+    <url>%2F2017%2F01%2F19%2F%E6%96%87%E7%AB%A0%E5%A2%9E%E5%8A%A0%E9%A1%B9%2F</url>
+    <content type="text"><![CDATA[哦，这个文章就是为了测试，在生成一篇文章后，都有哪些文件增加了]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[图片]]></title>
+    <url>%2F2017%2F01%2F19%2F%E5%9B%BE%E7%89%87%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"><![CDATA[现在就是测试一下图片，感觉要学的还有很多。]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于HEXO]]></title>
+    <url>%2F2017%2F01%2F13%2F%E5%85%B3%E4%BA%8EHEXO%2F</url>
+    <content type="text"><![CDATA[刚不知道是怎么回事，出现了command not found的错误，结果找了半天的解决方法，重新关闭cmd，再重新打开就好了，心塞～好了，现在就是学习怎样写文章，插入图片，粗体，斜体，段落，URL等，然后是评价，关于界面。、学习链接：Markdown手把手教你建github技术博客by hexo斜体1斜体2粗体1粗体加斜体删除线 标题1标题2标题3标题1 引用文字 引用嵌套引用。。。 引用标题 第一行 第二行 无序列表* 无序列表** 无序列表*]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试文章]]></title>
+    <url>%2F2017%2F01%2F12%2F%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[终于弄好了，是我DNS解析的有问题，所以没有通过链接到我的github博客，好笨。有了自己的博客网站，可以舍弃其他的博客了，好开心，希望自己能更加进步。加油！]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+</search>

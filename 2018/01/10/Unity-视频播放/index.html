@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/sun_32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/sun_16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Unity," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Handheld.PlayFullScreenMovie播放视频
+5.6新系统——Video Player(转载)不久前Unity正式发布了5.6版本，作为5.x版本的最后一版还是有不少给力的更新的。其中新加入了一个Video Player控件，用以取代之前的MovieTexture。虽然还是alpha版本的功能，但是在视频导入编辑和播放等功能上比之前的MovieTexture已经好上很多。当然U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity 视频播放">
+<meta property="og:url" content="https://IWEU.github.io/2018/01/10/Unity-视频播放/index.html">
+<meta property="og:site_name" content="Lynn">
+<meta property="og:description" content="Handheld.PlayFullScreenMovie播放视频
+5.6新系统——Video Player(转载)不久前Unity正式发布了5.6版本，作为5.x版本的最后一版还是有不少给力的更新的。其中新加入了一个Video Player控件，用以取代之前的MovieTexture。虽然还是alpha版本的功能，但是在视频导入编辑和播放等功能上比之前的MovieTexture已经好上很多。当然U">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515574384697qvvexx6j.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515574998002igv2kui2.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/15155767050889zvaq4la.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/15155767568824fer4sjj.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576771823axqt0cyf.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576777174nbaobj4g.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576784909f01lzjs5.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576821646vveazyhl.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/151557684288431gsc9p5.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576867852lxbpy87b.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576894051fmgf53fg.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/15155769038119v70opbz.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576917326jracqyhe.png?imageslim">
+<meta property="og:image" content="http://oy9q64bk5.bkt.clouddn.com/1515576937443y3ky4mxq.png?imageslim">
+<meta property="og:updated_time" content="2018-03-05T07:47:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity 视频播放">
+<meta name="twitter:description" content="Handheld.PlayFullScreenMovie播放视频
+5.6新系统——Video Player(转载)不久前Unity正式发布了5.6版本，作为5.x版本的最后一版还是有不少给力的更新的。其中新加入了一个Video Player控件，用以取代之前的MovieTexture。虽然还是alpha版本的功能，但是在视频导入编辑和播放等功能上比之前的MovieTexture已经好上很多。当然U">
+<meta name="twitter:image" content="http://oy9q64bk5.bkt.clouddn.com/1515574384697qvvexx6j.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://IWEU.github.io/2018/01/10/Unity-视频播放/"/>
+
+
+
+
+
+  <title>Unity 视频播放 | Lynn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19c3a1ece7c93c0410398dc55b09bb27";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lynn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Lynn's Life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gossip">
+          <a href="/gossip/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-quote-left"></i> <br />
+            
+            随笔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://IWEU.github.io/2018/01/10/Unity-视频播放/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ojv62dqsu.bkt.clouddn.com/icon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lynn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Unity 视频播放</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T16:53:00+08:00">
+                2018-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/10/Unity-视频播放/" class="leancloud_visitors" data-flag-title="Unity 视频播放">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Handheld-PlayFullScreenMovie播放视频"><a href="#Handheld-PlayFullScreenMovie播放视频" class="headerlink" title="Handheld.PlayFullScreenMovie播放视频"></a>Handheld.PlayFullScreenMovie播放视频</h5><p><img src="http://oy9q64bk5.bkt.clouddn.com/1515574384697qvvexx6j.png?imageslim" alt="paste image"></p>
+<h5 id="5-6新系统——Video-Player-转载"><a href="#5-6新系统——Video-Player-转载" class="headerlink" title="5.6新系统——Video Player(转载)"></a><a href="http://blog.csdn.net/dark00800/article/details/70160463" target="_blank" rel="external">5.6新系统——Video Player(转载)</a></h5><p>不久前Unity正式发布了5.6版本，作为5.x版本的最后一版还是有不少给力的更新的。其中新加入了一个Video Player控件，用以取代之前的MovieTexture。虽然还是alpha版本的功能，但是在视频导入编辑和播放等功能上比之前的MovieTexture已经好上很多。当然Unity还是保留了MovieTexture以防出现一个不可用的情况。</p>
+<p><a href="https://docs.google.com/document/d/1gZa5z_jEEETDk8E_hbYXXjNhetRlM9eu8eTpbfMkRYY/edit" target="_blank" rel="external">Video Player介绍（墙外的世界）</a><br><a href="https://docs.unity3d.com/ScriptReference/Video.VideoPlayer.html" target="_blank" rel="external">VideoPlayer API</a><br>首先导入视频，因为默认不进行编码转换，现在的视频导入速度比以前快很多。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515574998002igv2kui2.png?imageslim" alt="paste image"></p>
+<p><img src="http://oy9q64bk5.bkt.clouddn.com/15155767050889zvaq4la.png?imageslim" alt="paste image"><br>在视频的Import Settings面板上，我们可以选择导入的版本是新的VideoClip或者是旧版的MovieTexture。同时可以设置编码转换，转换的速度视视频的大小而定。</p>
+<p>Unity5.6提供了多种生成Video Player控件的方式：</p>
+<ol>
+<li>新建一个空白的Video Player：选择菜单栏的GameObject-&gt;Video-&gt;Video Player或者在Hierarchy面板上选择Create-&gt;Video-&gt;Video Player或者右击Hierarchy面板空白处选择Video-&gt;Video Player。</li>
+<li>直接将导入的VideoClip拖入场景或者Hierarchy面板，生成的VideoPlayer控件的VideoClip将会自动被赋值，如果场景中存在MainCamera，Camera也会被自动赋值为MainCamera。</li>
+<li>将导入的VideoClip拖动到场景中的Camera物体上，生成的VideoPlayer控件的VideoClip和MainCamera将会自动被赋值，模式默认选择Camera Far Plane。</li>
+<li>将导入的VideoClip拖动到场景中的2D或者3D物体上，生成的VideoPlayer控件的VideoClip和Renderer将会自动被赋值，模式默认选择Material Override。</li>
+<li>将导入的VideoClip拖动到场景中的UI物体上，生成的VideoPlayer控件的VideoClip将会自动被赋值，模式默认选择Render Texture。<br><img src="http://oy9q64bk5.bkt.clouddn.com/15155767568824fer4sjj.png?imageslim" alt="paste image"></li>
+</ol>
+<p>VideoPlayer的Inspector面板提供了基本的播放设置。我们可以选择播放源是指定的视频资源或者url路径，路径可以是本地路径或者http路径。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576771823axqt0cyf.png?imageslim" alt="paste image"></p>
+<p><img src="http://oy9q64bk5.bkt.clouddn.com/1515576777174nbaobj4g.png?imageslim" alt="paste image"></p>
+<p><img src="http://oy9q64bk5.bkt.clouddn.com/1515576784909f01lzjs5.png?imageslim" alt="paste image"></p>
+<p>下面是一些比较大众化的设置：</p>
+<ul>
+<li>Play On Awake：脚本载入时自动播放。</li>
+<li>Wait For First Frame：决定是否在第一帧加载完成后才播放，只有在Play On Awake被勾选是才有效。可以防止视频最前几帧被跳过。（使用过程中发现勾选后视频无法自动播放，原因不明）</li>
+<li>Loop：循环。</li>
+<li><p>Playback Speed：播放速度。<br>Video Player还提供了多种视频渲染的方式，包括Camera Far Plane，Camera Near Plane，Render Texture，Material Override，Api Only。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576821646vveazyhl.png?imageslim" alt="paste image"></p>
+</li>
+<li><p>Camera Far Plane：基于摄像机的渲染，渲染在摄像机的远平面上，需要设置用于渲染的摄像机，同时可以修改alpha通道的值做透明效果，可用于背景播放器。<br><img src="http://oy9q64bk5.bkt.clouddn.com/151557684288431gsc9p5.png?imageslim" alt="paste image"></p>
+</li>
+<li><p>Camera Near Plane：基于摄像机的渲染，渲染在摄像机的近平面上，需要设置用于渲染的摄像机，同时可以修改alpha通道的值做透明效果，可用作前景播放器。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576867852lxbpy87b.png?imageslim" alt="paste image"></p>
+</li>
+<li><p>Render Texture：将视频画面保存在Render Texture上，以供物体或者RawImage使用，可以用来做基于UGUI的播放器。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576894051fmgf53fg.png?imageslim" alt="paste image"></p>
+</li>
+<li><p>Material Override：将视频画面复制给所选Render的Material。需要选择具有Render组件的物体，可以选择赋值的材质属性。可制作360全景视频和VR视频。<br><img src="http://oy9q64bk5.bkt.clouddn.com/15155769038119v70opbz.png?imageslim" alt="paste image"></p>
+</li>
+<li><p>Api Only： 待研究。</p>
+</li>
+</ul>
+<p>其中Camera Far Plane，Camera Near Planehe和Render Texture可以通过设置Aspect Ratio来选择自适应分辨率的方式:<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576917326jracqyhe.png?imageslim" alt="paste image"></p>
+<p>最后一个Audio Output Mode用于音频的播放，None表示不播放音频，Audio Source表示使用Audio Source进行播放，Direct字面理解应该是直接通过视频来播放，但是我选择这个选项的时候并没有声音。<br><img src="http://oy9q64bk5.bkt.clouddn.com/1515576937443y3ky4mxq.png?imageslim" alt="paste image"><br>我们需要新建一个AudioSource物体用于音频播放，Audio Source的Clip不需赋值，其余参数可调。</p>
+<p>脚本控制（需引用UnityEngine.Video）：<br>VideoPlayer的脚本控制与AudioSource相似，有常规的Play，Pause，Stop方法，也有用于进度控制的time，isPlaying，isLooping，frame，frameCount等属性。<br>VideoPlayer可以使用一系列事件来监听播放的各个动作：</p>
+<p>errorReceived： 错误监听到时被执行。<br>frameDropped ：有丢帧发生时被执行。<br>frameReady ：新的一帧准备好时被执行。<br>loopPointReached ：播放结束或播放到循环的点时被执行。<br>prepareCompleted ：视频准备完成时被执行。<br>seekCompleted ：查询帧操作完成时被执行。<br>started：在Play方法调用之后立刻调用。<br>下面是关于播放器的创建使用，loopPointReached和PrepareCompleted的用法介绍：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using UnityEngine.Video;</div><div class="line"></div><div class="line">public class MyVideo : MonoBehaviour</div><div class="line">&#123;</div><div class="line">    public VideoPlayer vPlayer;</div><div class="line">    void Start () &#123;</div><div class="line">        vPlayer.loopPointReached += EndReached;</div><div class="line">        vPlayer.Play();</div><div class="line">    &#125;</div><div class="line">    void EndReached(VideoPlayer vPlayer)</div><div class="line">    &#123;</div><div class="line">        Debug.Log(&quot;End reached!&quot;);</div><div class="line">    &#125;   </div><div class="line">    void Update () &#123;</div><div class="line">        Debug.Log(&quot;Frame &quot; + vPlayer.frame);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using UnityEngine.Video;</div><div class="line"></div><div class="line">public class HTTPVideoScript : MonoBehaviour</div><div class="line">&#123;</div><div class="line">    void Start () &#123;</div><div class="line">        var vPlayer = gameObject.AddComponent&lt;VideoPlayer&gt;();</div><div class="line">        vPlayer.URL = &quot;http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4&quot;;</div><div class="line">        vPlayer.target = UnityEngine.Video.VideoTarget.CameraFrontPlane;</div><div class="line">        vPlayer.alpha = 0.5f;</div><div class="line">        vPlayer.prepareCompleted += Prepared;</div><div class="line">        vPlayer.Prepare();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    void Prepared(VideoPlayer vPlayer)</div><div class="line">    &#123;</div><div class="line">        Debug.Log(&quot;End reached!&quot;);</div><div class="line">        vPlayer.Play();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>By: 蒋志杰</p>
+<h5 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h5><p>现有比较常用的有AVPro，EasyMovieTexture，MobileMovieTexture</p>
+<h5 id="Unity3D之常见的路径（转载）"><a href="#Unity3D之常见的路径（转载）" class="headerlink" title="Unity3D之常见的路径（转载）"></a><a href="http://www.cnblogs.com/weiqiangwaideshijie/p/6762004.html" target="_blank" rel="external">Unity3D之常见的路径（转载）</a></h5><ol>
+<li><p>Unity3D中的资源路径:<br>Application.dataPath:此属性用于返回程序的数据文件所在文件夹的路径。例如在Editor中就是Assets了。<br>Application.streamingAssetsPath:此属性用于返回流数据的缓存目录，返回路径为相对路径，适合设置一些外部数据文件的路径。<br>Application.persistentDataPath:此属性用于返回一个持久化数据存储目录的路径，可以在此路径下存储一些持久化的数据文件。</p>
+</li>
+<li><p>android平台<br>Application.dataPath: /data/app/xxx.xxx.xxx.apk Application.streamingAssetsPath: jar:file:///data/app/xxx.xxx.xxx.apk/!/assets Application.persistentDataPath: /data/data/xxx.xxx.xxx/files Application.temporaryCachePath: /data/data/xxx.xxx.xxx/cache</p>
+</li>
+<li><p>IOS平台<br>Application.dataPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data Application.streamingAssetsPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw Application.persistentDataPath: Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents Application.temporaryCachePath Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches 从上面的3张表格，我们可以看到 dataPath和streamingAssetsPath的路径位置一般是相对程序的安装目录位置，而</p>
+</li>
+</ol>
+<p>persistentDataPath和temporaryCachePath的路径位置一般是相对所在系统的固定位置</p>
+<p>相关参考链接（Unity 视频播放方法，加载assetbundle和常用路径）：<br><a href="http://blog.csdn.net/u011804918/article/details/52065728" target="_blank" rel="external">unity调用ios原生视频播放</a><br><a href="http://gad.qq.com/article/detail/7110090" target="_blank" rel="external">Unity视频播放总结</a><br><a href="http://answers.unity3d.com/questions/764683/streamingassets-www-url-not-found.html" target="_blank" rel="external">StreamingAssets + WWW url not found</a><br><a href="https://forum.unity3d.com/threads/ios-handheld-playfullscreenmovie-not-working.140853/" target="_blank" rel="external">iOS Handheld.PlayFullScreenMovie Not working</a><br><a href="https://www.assetstore.unity3d.com/cn/#!/content/2670" target="_blank" rel="external">AVPro Movie Capture Unity Asset Store</a><br><a href="http://www.360doc.com/content/14/0212/11/11670799_351840295.shtml" target="_blank" rel="external">加载prefab</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://ojv62dqsu.bkt.clouddn.com/weixin.png" alt="Lynn 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://ojv62dqsu.bkt.clouddn.com/zhifubao1.png" alt="Lynn 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unity/" rel="tag"># Unity</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/26/Unity-动画系统/" rel="next" title="Unity 动画系统">
+                <i class="fa fa-chevron-left"></i> Unity 动画系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/11/UGUI-Tips/" rel="prev" title="UGUI Tips">
+                UGUI Tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODQ0NC81MDE1"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://ojv62dqsu.bkt.clouddn.com/icon.jpg"
+                alt="Lynn" />
+            
+              <p class="site-author-name" itemprop="name">Lynn</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/IWEU" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/2707295433/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/lynnliu0215/" target="_blank" title="Instagram">
+                    
+                      <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/liu-yan-yan-67/activities" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-grav"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Handheld-PlayFullScreenMovie播放视频"><span class="nav-number">1.</span> <span class="nav-text">Handheld.PlayFullScreenMovie播放视频</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-6新系统——Video-Player-转载"><span class="nav-number">2.</span> <span class="nav-text">5.6新系统——Video Player(转载)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#插件"><span class="nav-number">3.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Unity3D之常见的路径（转载）"><span class="nav-number">4.</span> <span class="nav-text">Unity3D之常见的路径（转载）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lynn</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("0eiQLzf2fzpKv5MfhAFEE2tv-gzGzoHsz", "hGb1ro9aN5OXev5XN0R4GW6p");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
